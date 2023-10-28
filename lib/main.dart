@@ -49,7 +49,19 @@ class _ImageExplorerState extends State<ImageExplorer> {
               Divider(),
               Text("Nombre del heroe: $heroeName"),
               Divider(),
-              ElevatedButton(onPressed: () {}, child: Text("Siguiente"))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Mostrar nombre"),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Siguiente"),
+                  ),
+                ],
+              )
             ],
           ),
         ),
