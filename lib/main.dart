@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:imagesexplorer/models/heroModel.dart';
 
@@ -17,6 +19,7 @@ class ImageExplorer extends StatefulWidget {
 
 class _ImageExplorerState extends State<ImageExplorer> {
   String heroeName = "";
+  int n = 0;
   List<HeroModel> heroesList = [
     HeroModel(
         name: "Batman",
@@ -36,6 +39,25 @@ class _ImageExplorerState extends State<ImageExplorer> {
             "https://img.asmedia.epimg.net/resizer/yiQQU22M3OJOr5C9gcK2Vwlyngw=/1472x1104/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/BBKLXDTL45M43FMNMLJJO4GWRM.jpg")
   ];
 
+  // String showName(int index) {
+  //   String name = heroesList[index].name;
+  //   return name;
+  // }
+
+  // @override
+  // void initState() {
+  //   n = Random().nextInt(heroesList.length);
+  //   // TODO: implement initState
+  //   super.initState();
+  // }
+
+  @override
+  void initState() {
+    n = Random().nextInt(heroesList.length);
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -45,7 +67,7 @@ class _ImageExplorerState extends State<ImageExplorer> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Column(
             children: [
-              Image.network(heroesList[2].imageUrl),
+              Image.network(heroesList[n].imageUrl),
               Divider(),
               Text("Nombre del heroe: $heroeName"),
               Divider(),
@@ -53,11 +75,16 @@ class _ImageExplorerState extends State<ImageExplorer> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      heroeName = heroesList[n].name;
+                      setState(() {});
+                    },
                     child: Text("Mostrar nombre"),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {});
+                    },
                     child: Text("Siguiente"),
                   ),
                 ],
