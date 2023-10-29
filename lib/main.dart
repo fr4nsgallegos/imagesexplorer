@@ -67,7 +67,11 @@ class _ImageExplorerState extends State<ImageExplorer> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Column(
             children: [
-              Image.network(heroesList[n].imageUrl),
+              Image.network(
+                heroesList[n].imageUrl,
+                height: 250,
+                fit: BoxFit.cover,
+              ),
               Divider(),
               Text("Nombre del heroe: $heroeName"),
               Divider(),
@@ -83,6 +87,10 @@ class _ImageExplorerState extends State<ImageExplorer> {
                   ),
                   ElevatedButton(
                     onPressed: () {
+                      n = Random().nextInt(heroesList
+                          .length); //asignando un valor random entre 0 y el tamaño de la lista (sin tomar el valor del tamaño)
+                      //0 y n-1
+                      heroeName = "";
                       setState(() {});
                     },
                     child: Text("Siguiente"),
