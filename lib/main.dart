@@ -70,6 +70,7 @@ class _ImageExplorerState extends State<ImageExplorer> {
               Image.network(
                 heroesList[n].imageUrl,
                 height: 250,
+                width: double.infinity,
                 fit: BoxFit.cover,
               ),
               Divider(),
