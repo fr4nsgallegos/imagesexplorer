@@ -67,11 +67,25 @@ class _ImageExplorerState extends State<ImageExplorer> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Column(
             children: [
-              Image.network(
-                heroesList[n].imageUrl,
+              Container(
                 height: 250,
                 width: double.infinity,
-                fit: BoxFit.cover,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                      heroesList[n].imageUrl,
+                    ),
+                  ),
+                  color: Colors.red,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
+                // child: Image.network(
+                //   heroesList[n].imageUrl,
+                //   fit: BoxFit.cover,
+                // ),
               ),
               Divider(),
               Text("Nombre del heroe: $heroeName"),
