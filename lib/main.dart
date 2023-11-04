@@ -18,7 +18,7 @@ class ImageExplorer extends StatefulWidget {
 }
 
 class _ImageExplorerState extends State<ImageExplorer> {
-  String heroeName = "";
+  String heroeName = "ss";
   int n = 0;
   List<HeroModel> heroesList = [
     HeroModel(
